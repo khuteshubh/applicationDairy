@@ -1,0 +1,53 @@
+/* Sidebar */
+.sidebar {
+    position: absolute; /* Positioned relative to the navbar */
+    top: 60px; /* Adjust according to the height of your navbar */
+    left: -250px; /* Start hidden off-screen */
+    width: 250px;
+    height: calc(100vh - 60px); /* Full height below the navbar */
+    background-color: #343a40;
+    color: white;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+    padding: 20px;
+  }
+  
+  .sidebar.open {
+    left: 0; /* Slide in */
+  }
+  
+  .sidebar ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  .sidebar ul li {
+    margin: 15px 0;
+  }
+  
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+  }
+  
+  .sidebar ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Hamburger and X Icon */
+  button.btn-light {
+    font-size: 24px;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  /* Navbar */
+  .navbar {
+    position: relative;
+    z-index: 1050; /* Ensure navbar is above the sidebar */
+  }
+  
