@@ -1,14 +1,12 @@
 import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import './LoginPage.css'; 
+import "./LoginPage.css";
 
 export default function AdminLogin() {
   const admin = useRef();
   const pass = useRef();
   const [error, setError] = useState("");
   const navigate = useNavigate();
-
- 
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -32,10 +30,15 @@ export default function AdminLogin() {
     <div className="unique-login-page">
       <div className="unique-login-container">
         <div className="unique-form-container">
-          <Link to="/loginc" className="signup-link">Back</Link>
+          <Link to="/loginc" className="signup-link">
+            Back
+          </Link>
           <h1 className="unique-form-title">Admin</h1>
           <h2 className="unique-form-title">Sign In</h2>
-          <form className="unique-form unique-signin-form" onSubmit={handleLogin}>
+          <form
+            className="unique-form unique-signin-form"
+            onSubmit={handleLogin}
+          >
             <div className="unique-form-group">
               <label htmlFor="username">Username</label>
               <input

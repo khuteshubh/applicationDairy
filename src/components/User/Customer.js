@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
+import CusHeader from "./CusHeader";
+
 
 export default function Customer() {
   return (
-    <div>
-      
-    </div>
-  )
+    <>
+      <CusHeader />
+    </>
+  );
 }
