@@ -13,11 +13,11 @@ import FarmerRecord from "./components/Admin/FarmerRecord";
 import LoanAndFeedRecord from "./components/Admin/LoanAndFeedRecord";
 // import AddMilkRecord from "./components/Admin/AddMilkRecord";
 import AdminHeader from "./components/Admin/AdminHeader";
-import CusHeader from "./components/User/CusHeader";
+
 import SideBar from "./components/User/siderBar/SideBar";
 import BuyAndSellCattle from "./components/User/BuyAndSellCattle";
 import Dashboard from "./components/User/dashboard/Dashboard";
-// import SideBar1 from "./components/User/SideBar1";
+import NavigationBar from "./components/User/navBar/NavigationBar";
 
 const customRoute = createBrowserRouter([
   {
@@ -103,7 +103,7 @@ const customRoute = createBrowserRouter([
     element: (
       <>
         <SideBar />
-        <CusHeader />
+        <NavigationBar />
         <Outlet/>
       </>
     ),

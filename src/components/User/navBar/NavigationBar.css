@@ -1,10 +1,12 @@
 .Nav_container{
     /* display: flex; */
     justify-content: end;
-    color: black !important;
+    /* color: black !important; */
+    position: fixed !important;
 
 
     position: relative;
+    top: 10px;
     /* left: 300px; */}
 
 a{
@@ -14,7 +16,7 @@ a{
 
 /* Make navbar text and icons black */
 .navbar .text-black {
-    color: black !important; /* Override Bootstrap's default white color */
+    color: rgb(226, 223, 223) !important; /* Override Bootstrap's default white color */
 }
 
 .navbar-dark .navbar-toggler {
@@ -32,8 +34,6 @@ a{
     /* left: 800px; */
     top: -30px;
    
-   
-
 }
 
 .nav-link {
@@ -50,7 +50,4 @@ a{
     top: -1px;
 }
 
-.navbar-brand{
-    color: black !important;
-    background-color: black !important;
-}
+
