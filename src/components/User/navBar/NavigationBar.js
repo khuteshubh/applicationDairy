@@ -29,10 +29,10 @@ const NavigationBar = () => {
                 <Navbar.Collapse id="navbar-nav">
                   <Nav className="ms-auto">
                     <NavDropdown title="Profile" id="profile-dropdown" align="end">
-                      <NavDropdown.Item href="/userdash/buyandsell">
+                      <NavDropdown.Item href="/userdash/myProfile">
                         My Profile
                       </NavDropdown.Item>
-                      <NavDropdown.Item href="/userdash/sidebar">
+                      <NavDropdown.Item href="/userdash/settings">
                         Settings
                       </NavDropdown.Item>
                       <NavDropdown.Divider />

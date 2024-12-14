@@ -18,6 +18,8 @@ import SideBar from "./components/User/siderBar/SideBar";
 import BuyAndSellCattle from "./components/User/BuyAndSellCattle";
 import Dashboard from "./components/User/dashboard/Dashboard";
 import NavigationBar from "./components/User/navBar/NavigationBar";
+import MyProfile from "./components/User/profile/MyProfile";
+import Settings from "./components/User/settingComponent/Settings";
 
 const customRoute = createBrowserRouter([
   {
@@ -119,6 +121,14 @@ const customRoute = createBrowserRouter([
       {
         path: "Dashboard",
         element: <Dashboard/>
+      },
+      {
+        path: "myProfile",
+        element: <MyProfile/>
+      },
+      {
+        path: "settings",
+        element: <Settings/>
       },
       
       
