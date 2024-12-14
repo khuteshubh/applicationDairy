@@ -20,7 +20,7 @@ export default function AdminLogin() {
 
     if (adminVal === "admin" && passVal === "password") {
       setError("");
-      navigate("/admindash");
+      navigate("/userdash");
     } else {
       setError("Please enter valid credentials");
     }

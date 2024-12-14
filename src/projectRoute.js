@@ -14,9 +14,10 @@ import LoanAndFeedRecord from "./components/Admin/LoanAndFeedRecord";
 // import AddMilkRecord from "./components/Admin/AddMilkRecord";
 import AdminHeader from "./components/Admin/AdminHeader";
 import CusHeader from "./components/User/CusHeader";
-// import Sidebar from "./components/User/Sidebar";
+import SideBar from "./components/User/siderBar/SideBar";
 import BuyAndSellCattle from "./components/User/BuyAndSellCattle";
-import SideBar1 from "./components/User/SideBar1";
+import Dashboard from "./components/User/dashboard/Dashboard";
+// import SideBar1 from "./components/User/SideBar1";
 
 const customRoute = createBrowserRouter([
   {
@@ -43,6 +44,7 @@ const customRoute = createBrowserRouter([
         path: "signup",
         element: <SignUpPage />,
       },
+      
       //   {
       //     path: "addMilk",
       //     element: <AddMilkRecord/>
@@ -100,8 +102,9 @@ const customRoute = createBrowserRouter([
     path: "userdash",
     element: (
       <>
+        <SideBar />
         <CusHeader />
-        <Outlet />
+        <Outlet/>
       </>
     ),
     children: [
@@ -109,11 +112,16 @@ const customRoute = createBrowserRouter([
         path: "buyandsell",
         element: <BuyAndSellCattle />,
       },
-
       {
         path: "sidebar",
-        element: <SideBar1 />,
+        element: <SideBar />,
       },
+      {
+        path: "Dashboard",
+        element: <Dashboard/>
+      },
+      
+      
     ],
   },
 ]);
