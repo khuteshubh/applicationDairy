@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./LoginPage.css";
+import "./SignupPage.css";
 
 export default function SignUpPage() {
   const [errorMessage, setErrorMessage] = useState("");
@@ -72,7 +72,7 @@ export default function SignUpPage() {
     console.log("Date of Birth:", date);
     console.log("Password:", password);
 
-    navigate("/logins");
+    navigate("/bankdetails");
   };
 
   return (
@@ -130,7 +130,7 @@ export default function SignUpPage() {
               required
             />
             <button type="submit" className="signup-btn">
-              Sign Up
+              Submit
             </button>
           </form>
           <div className="signup-footer">

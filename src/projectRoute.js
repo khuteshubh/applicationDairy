@@ -8,6 +8,7 @@ import AdminLogin from "./AdminLogin";
 import SignUpPage from "./SignUpPage";
 // import Admin from "./components/Admin/Admin";
 import Add_Milk_Record from "./components/Admin/Add_Milk_Record";
+// import Dashboard from "./components/Admin/Dashboard";
 import Add_User_Milk_Details from "./components/Admin/Add_User_Milk_Details";
 import FarmerRecord from "./components/Admin/FarmerRecord";
 import LoanAndFeedRecord from "./components/Admin/LoanAndFeedRecord";
@@ -16,10 +17,18 @@ import AdminHeader from "./components/Admin/AdminHeader";
 
 import SideBar from "./components/User/siderBar/SideBar";
 import BuyAndSellCattle from "./components/User/BuyAndSellCattle";
+
 import Dashboard from "./components/User/dashboard/Dashboard";
 import NavigationBar from "./components/User/navBar/NavigationBar";
 import MyProfile from "./components/User/profile/MyProfile";
 import Settings from "./components/User/settingComponent/Settings";
+import HomeUser from "./components/User/HomeUser";
+import UserLogin from "./UserLogin";
+import ProductUpload from "./components/Admin/Product/ProductUpload";
+import AdminDashboard from "./components/Admin/AdminDashboard";
+import BankDetailsPage from "./BankDetailsPage";
+// import UpperNavbar from "./components/Admin/UpperNavbar";
+import Admin from "./components/Admin/Admin";
 
 const customRoute = createBrowserRouter([
   {
@@ -35,7 +44,7 @@ const customRoute = createBrowserRouter([
         element: <Loginc />,
       },
       {
-        path: "loginpage",
+        path: "farmerlogin",
         element: <LoginPage />,
       },
       {
@@ -43,8 +52,16 @@ const customRoute = createBrowserRouter([
         element: <AdminLogin />,
       },
       {
+        path: "userLogin",
+        element: <UserLogin />,
+      },
+      {
         path: "signup",
         element: <SignUpPage />,
+      },
+      {
+        path: "bankdetails",
+        element: <BankDetailsPage />,
       },
       
       //   {
@@ -77,11 +94,17 @@ const customRoute = createBrowserRouter([
     path: "admindash",
     element: (
       <>
-        <AdminHeader />
-        <Outlet />
+      <Admin/>
+      {/* <UpperNavbar/> */}
+        {/* <AdminHeader />  */}
+        {/* <Outlet /> */}
       </>
     ),
     children: [
+      {
+        path: "dashboard",
+        element: <AdminDashboard/>,
+      },
       {
         path: "addmilkrecord",
         element: <Add_Milk_Record />,
@@ -98,12 +121,17 @@ const customRoute = createBrowserRouter([
         path: "loanfeed",
         element: <LoanAndFeedRecord />,
       },
+      {
+        path: "productupload",
+        element: <ProductUpload />,
+      },
     ],
   },
   {
     path: "userdash",
     element: (
       <>
+      {/* <HomeUser/> */}
         <SideBar />
         <NavigationBar />
         <Outlet/>

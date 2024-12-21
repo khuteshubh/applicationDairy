@@ -17,17 +17,17 @@ export default function Loginc() {
           </button>
         </div>
         <div className="login-card employee-card">
-          <h2>Employee</h2>
+          <h2>Farmer</h2>
           <p>Access resources and collaborate on tasks efficiently.</p>
           <button className="login-btn">
-            <Link to="/employeelogin/">Login as Employee</Link>
+            <Link to="/farmerlogin/">Login as Farmer</Link>
           </button>
         </div>
         <div className="login-card customer-card">
           <h2>Customer</h2>
           <p>Explore products and manage your account seamlessly.</p>
           <button className="login-btn">
-            <Link to="/loginpage">Login as Customer</Link>
+            <Link to="/userLogin">Login as Customer</Link>
           </button>
         </div>
       </div>
