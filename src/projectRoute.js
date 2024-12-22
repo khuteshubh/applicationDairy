@@ -29,6 +29,8 @@ import AdminDashboard from "./components/Admin/AdminDashboard";
 import BankDetailsPage from "./BankDetailsPage";
 // import UpperNavbar from "./components/Admin/UpperNavbar";
 import Admin from "./components/Admin/Admin";
+import AboutUs from "./AboutUs";
+import Main from "./Main";
 
 const customRoute = createBrowserRouter([
   {
@@ -38,6 +40,14 @@ const customRoute = createBrowserRouter([
       {
         path: "header",
         element: <Header />,
+      },
+      {
+        path: "Main",
+        element: <Main />,
+      },
+      {
+        path: "about",
+        element: <AboutUs />,
       },
       {
         path: "loginc",

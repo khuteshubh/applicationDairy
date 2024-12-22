@@ -1,5 +1,8 @@
 import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { IoKeyOutline,IoPhonePortraitOutline  } from "react-icons/io5";
+import { MdOutlineMailOutline,MdDateRange } from "react-icons/md";
+import { FaRegUser } from "react-icons/fa";
 import "./SignupPage.css";
 
 export default function SignUpPage() {
@@ -88,6 +91,10 @@ export default function SignUpPage() {
             {errorMessage && (
               <p className="signup-error-message">{errorMessage}</p>
             )}
+            <FaRegUser />
+            <label htmlFor="">
+              Name
+            </label>
             <input
               className="signup-input-field"
               type="text"
@@ -95,6 +102,8 @@ export default function SignUpPage() {
               ref={fullNameRef}
               required
             />
+            <MdOutlineMailOutline />
+            <label htmlFor="">Email</label>
             <input
               className="signup-input-field"
               type="email"
@@ -102,19 +111,25 @@ export default function SignUpPage() {
               ref={emailRef}
               required
             />
+            <IoPhonePortraitOutline />
+            <label htmlFor="">Phone</label>
             <input
               className="signup-input-field"
               type="tel"
-              placeholder="Mobile Number"
+              placeholder="Phone Number"
               ref={mobileRef}
               required
             />
+            <MdDateRange />
+            <label htmlFor="">Date</label>
             <input
               className="signup-input-field"
               type="date"
               ref={dateRef}
               required
             />
+            <IoKeyOutline />
+            <label htmlFor="">Password</label>
             <input
               className="signup-input-field"
               type="password"
@@ -122,6 +137,8 @@ export default function SignUpPage() {
               ref={passwordRef}
               required
             />
+            <IoKeyOutline />
+            <label htmlFor="">Confirm Password</label>
             <input
               className="signup-input-field"
               type="password"

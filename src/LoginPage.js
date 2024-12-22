@@ -66,7 +66,7 @@ export default function LoginPage() {
                         <button type="submit" className="unique-form-submit-button" >Sign In</button>
                     </form>
                     <div className="unique-signup-link">
-                        <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
+                        <p>New to Sadguru? <Link to="/signup">Sign Up</Link></p>
                     </div>
                 </div>
             </div>

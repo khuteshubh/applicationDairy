@@ -69,7 +69,7 @@ export default function UserLogin() {
                     </form>
                     {/* {error && <p className="error-message">{error}</p>} */}
                     <div className="unique-signup-link">
-                                            <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
+                                            <p>New to Sadguru? <Link to="/signup">Sign Up</Link></p>
                                         </div>
                 </div>
             </div>
