@@ -4,6 +4,10 @@
     color: #ffffff;
     padding: 20px;
     font-family: Arial, sans-serif;
+    width: 900px;
+    position: relative;
+    left: 350px;
+    top: 80px;
   }
   
   /* Filters Section */

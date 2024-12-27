@@ -1,7 +1,10 @@
 
   /* Navbar styling */
   .navbar {
-    padding: 10px 20px;
+    /* padding: 10px 20px; */
+    position: fixed !important;
+    width: 1350px !important;
+    top: -5px;
   }
 
   /* Align navbar links to the right */
