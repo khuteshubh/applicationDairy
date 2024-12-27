@@ -34,6 +34,8 @@ import Main from "./Main";
 import MilkReport from "./components/Admin/MilkReport";
 import FarmerLoan from "./components/Admin/FarmerLoan";
 import Product from "./Product";
+import CattleFeedForm from "./components/Admin/CattleFeedForm";
+import CustMilkDetails from "./components/Admin/CustMilkDetails";
 
 const customRoute = createBrowserRouter([
   {
@@ -81,34 +83,7 @@ const customRoute = createBrowserRouter([
         element: <BankDetailsPage />,
       },
       
-      //   {
-      //     path: "addMilk",
-      //     element: <AddMilkRecord/>
-      //   },
-      //   {
-      //     path: "admin",
-      //     element: <Admin />,
-      //   },
-        {
-          path: "addmilkrecord",
-          element: <Add_Milk_Record />,
-        },
-        {
-          path: "uesrmilkrecord",
-          element: <Add_User_Milk_Details />,
-        },
-        {
-          path: "loanfeed",
-          element: <LoanAndFeedRecord />,
-        },
-        {
-          path: "farmerrecord",
-          element: <FarmerRecord />,
-        },
-        {
-          path: "milkreport",
-          element: <MilkReport />,
-        },
+      
     ],
   },
   {
@@ -139,12 +114,20 @@ const customRoute = createBrowserRouter([
         element: <Add_User_Milk_Details />,
       },
       {
+        path: "custmilkrecord",
+        element: <CustMilkDetails />,
+      },
+      {
         path: "farmerrecord",
         element: <FarmerRecord />,
       },
       {
         path: "milkreport",
         element: <MilkReport />,
+      },
+      {
+        path: "cattlefeed",
+        element: <CattleFeedForm />,
       },
 
       {

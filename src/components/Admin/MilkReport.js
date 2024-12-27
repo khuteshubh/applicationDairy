@@ -1,12 +1,48 @@
-// MilkReport.js
 import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./MilkReport.css";
 
 const MilkReport = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { farmerRecords } = location.state || { farmerRecords: [] }; // Default to empty if no data
+
+  // Calculate Averages and Totals
+  const totalEntries = farmerRecords.length;
+  const avgFat =
+    totalEntries > 0
+      ? (
+          farmerRecords.reduce((sum, record) => sum + parseFloat(record.fat || 0), 0) /
+          totalEntries
+        ).toFixed(2)
+      : "0.00";
+  const avgSNF =
+    totalEntries > 0
+      ? (
+          farmerRecords.reduce((sum, record) => sum + parseFloat(record.snf || 0), 0) /
+          totalEntries
+        ).toFixed(2)
+      : "0.00";
+  const avgRate =
+    totalEntries > 0
+      ? (
+          farmerRecords.reduce((sum, record) => sum + parseFloat(record.totalAmount || 0), 0) /
+          farmerRecords.reduce((sum, record) => sum + parseFloat(record.litre || 1), 1)
+        ).toFixed(2)
+      : "0.00";
+  const totalWeight = farmerRecords.reduce(
+    (sum, record) => sum + parseFloat(record.litre || 0),
+    0
+  );
+  const totalAmount = farmerRecords.reduce(
+    (sum, record) => sum + parseFloat(record.totalAmount || 0),
+    0
+  );
+
   return (
     <div className="milk-report">
       <header className="report-header">
-        <h1>Milk Report Generator</h1>
+        <h1>Milk Report for Farmer</h1>
         <button className="switch-lang">Switch to Marathi</button>
       </header>
 
@@ -26,56 +62,18 @@ const MilkReport = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>22/08/2024, 01:28:31 pm</td>
-              <td>evening</td>
-              <td>5</td>
-              <td>9</td>
-              <td>40</td>
-              <td>10</td>
-              <td>0</td>
-              <td>Rs: 400</td>
-            </tr>
-            <tr>
-              <td>22/08/2024, 01:45:44 pm</td>
-              <td>evening</td>
-              <td>4.5</td>
-              <td>10</td>
-              <td>36</td>
-              <td>23</td>
-              <td>0</td>
-              <td>Rs: 828</td>
-            </tr>
-            <tr>
-              <td>22/08/2024, 02:02:51 pm</td>
-              <td>evening</td>
-              <td>3.6</td>
-              <td>8</td>
-              <td>28.8</td>
-              <td>25</td>
-              <td>0</td>
-              <td>Rs: 720</td>
-            </tr>
-            <tr>
-              <td>23/08/2024, 10:41:04 am</td>
-              <td>morning</td>
-              <td>8.9</td>
-              <td>9</td>
-              <td>71.2</td>
-              <td>5.5</td>
-              <td>0</td>
-              <td>Rs: 391.6</td>
-            </tr>
-            <tr>
-              <td>23/08/2024, 12:00:06 pm</td>
-              <td>evening</td>
-              <td>5</td>
-              <td>9</td>
-              <td>60</td>
-              <td>5</td>
-              <td>0</td>
-              <td>Rs: 300</td>
-            </tr>
+            {farmerRecords.map((record, index) => (
+              <tr key={index}>
+                <td>{record.date}</td>
+                <td>{record.time}</td>
+                <td>{record.fat}</td>
+                <td>{record.snf}</td>
+                <td>{(record.totalAmount / record.litre || 0).toFixed(2)}</td>
+                <td>{record.litre}</td>
+                <td>0</td>
+                <td>₹ {record.totalAmount}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </section>
@@ -86,27 +84,23 @@ const MilkReport = () => {
           <tbody>
             <tr>
               <td>Avg. Fat</td>
-              <td>5.40</td>
+              <td>{avgFat}</td>
             </tr>
             <tr>
               <td>Avg. SNF</td>
-              <td>9.00</td>
-            </tr>
-            <tr>
-              <td>Avg. Degree</td>
-              <td>28.00</td>
+              <td>{avgSNF}</td>
             </tr>
             <tr>
               <td>Avg. Rate/Liter</td>
-              <td>47.20</td>
+              <td>{avgRate}</td>
             </tr>
             <tr>
               <td>Total Weight</td>
-              <td>68.500</td>
+              <td>{totalWeight}</td>
             </tr>
             <tr>
               <td>Total Amount</td>
-              <td>2639.6 ₹</td>
+              <td>₹ {totalAmount}</td>
             </tr>
           </tbody>
         </table>
@@ -114,8 +108,10 @@ const MilkReport = () => {
 
       <footer className="report-footer">
         <button className="download-btn">Download PDF</button>
-        <button className="cancel-btn">Cancel</button>
-        <p>Bill Generation Date: 8/26/2024 12:42:57 PM</p>
+        <button className="cancel-btn" onClick={() => navigate(-1)}>
+          Back
+        </button>
+        <p>Bill Generation Date: {new Date().toLocaleString()}</p>
       </footer>
     </div>
   );

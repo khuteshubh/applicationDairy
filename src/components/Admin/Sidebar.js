@@ -131,8 +131,8 @@ const Sidebar = () => {
         <li><Link to="/admindash/addmilkrecord">Add Milk</Link></li>
         <li><Link to="/admindash/addMilk">Customers</Link></li>
         <li><Link to="/admindash/farmerrecord">Milk Stats</Link></li>
-        <li><Link to="/admindash/farmerloan">Favourites</Link></li>
-        <li><Link to="/admindash/loanfeed">Settings</Link></li>
+        <li><Link to="/admindash/custmilkrecord">Favourites</Link></li>
+        <li><Link to="/admindash/uesrmilkrecord">Settings</Link></li>
       </ul>
     </aside>
   );
