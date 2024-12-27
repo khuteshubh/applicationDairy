@@ -12,7 +12,7 @@ import Add_Milk_Record from "./components/Admin/Add_Milk_Record";
 import Add_User_Milk_Details from "./components/Admin/Add_User_Milk_Details";
 import FarmerRecord from "./components/Admin/FarmerRecord";
 import LoanAndFeedRecord from "./components/Admin/LoanAndFeedRecord";
-// import AddMilkRecord from "./components/Admin/AddMilkRecord";
+import AddMilkRecord from "./components/Admin/AddMilkRecord";
 import AdminHeader from "./components/Admin/AdminHeader";
 
 import SideBar from "./components/User/siderBar/SideBar";
@@ -31,6 +31,9 @@ import BankDetailsPage from "./BankDetailsPage";
 import Admin from "./components/Admin/Admin";
 import AboutUs from "./AboutUs";
 import Main from "./Main";
+import MilkReport from "./components/Admin/MilkReport";
+import FarmerLoan from "./components/Admin/FarmerLoan";
+import Product from "./Product";
 
 const customRoute = createBrowserRouter([
   {
@@ -48,6 +51,10 @@ const customRoute = createBrowserRouter([
       {
         path: "about",
         element: <AboutUs />,
+      },
+      {
+        path: "product",
+        element: <Product />,
       },
       {
         path: "loginc",
@@ -82,22 +89,26 @@ const customRoute = createBrowserRouter([
       //     path: "admin",
       //     element: <Admin />,
       //   },
-      //   {
-      //     path: "addmilkrecord",
-      //     element: <Add_Milk_Record />,
-      //   },
-      //   {
-      //     path: "uesrmilkrecord",
-      //     element: <Add_User_Milk_Details />,
-      //   },
-      //   {
-      //     path: "loanfeed",
-      //     element: <LoanAndFeedRecord />,
-      //   },
-      //   {
-      //     path: "farmerrecord",
-      //     element: <FarmerRecord />,
-      //   },
+        {
+          path: "addmilkrecord",
+          element: <Add_Milk_Record />,
+        },
+        {
+          path: "uesrmilkrecord",
+          element: <Add_User_Milk_Details />,
+        },
+        {
+          path: "loanfeed",
+          element: <LoanAndFeedRecord />,
+        },
+        {
+          path: "farmerrecord",
+          element: <FarmerRecord />,
+        },
+        {
+          path: "milkreport",
+          element: <MilkReport />,
+        },
     ],
   },
   {
@@ -116,6 +127,10 @@ const customRoute = createBrowserRouter([
         element: <AdminDashboard/>,
       },
       {
+            path: "addMilk",
+            element: <AddMilkRecord/>
+          },
+      {
         path: "addmilkrecord",
         element: <Add_Milk_Record />,
       },
@@ -126,6 +141,15 @@ const customRoute = createBrowserRouter([
       {
         path: "farmerrecord",
         element: <FarmerRecord />,
+      },
+      {
+        path: "milkreport",
+        element: <MilkReport />,
+      },
+
+      {
+        path: "farmerloan",
+        element: <FarmerLoan />,
       },
       {
         path: "loanfeed",

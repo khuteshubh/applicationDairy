@@ -58,7 +58,7 @@
   /* Sidebar Styles */
 
 /* General sidebar container */
-#sidebar {
+/* #sidebar {
   position: fixed;
   top: 0;
   left: 0;
@@ -83,7 +83,7 @@
   background-color: #102d54;
   font-size: 1.2rem;
   font-weight: bold;
-  color: #ff7f50; /* Coral color */
+  color: #ff7f50; 
 }
 
 .sidebar-title .close_icon {
@@ -151,7 +151,7 @@
   color: #c0c0c0;
 }
 
-/* Responsive sidebar */
+
 @media screen and (max-width: 768px) {
   #sidebar {
     transform: translateX(-250px);
@@ -160,4 +160,30 @@
   #sidebar.sidebar-responsive {
     transform: translateX(0);
   }
+} */
+
+/* ================================================================================================================================= */
+
+
+
+.navbar {
+  background-color: #111827;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  height: 60px;
+}
+
+.navbar-brand {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navbar-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 14px;
 }
