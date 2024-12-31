@@ -30,7 +30,7 @@ export default function AdminLogin() {
     <div className="unique-login-page">
       <div className="unique-login-container">
         <div className="unique-form-container">
-          <Link to="/loginc" className="signup-link">
+          <Link to="/login" className="signup-link">
             Back
           </Link>
           <h1 className="unique-form-title">Admin</h1>

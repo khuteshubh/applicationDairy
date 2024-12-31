@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import './LoginPage.css';
+import './FarmerLogin.css';
 export default function LoginPage() {
     const farmer = useRef();
     const pass = useRef();
@@ -19,7 +19,7 @@ export default function LoginPage() {
   
       if (farmerVal === "farmer" && passVal === "password") {
         setError("");
-        navigate("/userdash");
+        navigate("/userdash/Dashboard");
       } else {
         setError("Please enter valid credentials");
       }
@@ -28,7 +28,7 @@ export default function LoginPage() {
     <div className="unique-login-page">
             <div className="unique-login-container">
                 <div className="unique-form-container">
-                <Link to="/loginc" className="signup-link">Back</Link>
+                <Link to="/login" className="signup-link">Back</Link>
                 <h1 className="unique-form-title">Farmer</h1>
                     <h2 className="unique-form-title">Sign In</h2>
                     <form className="unique-form unique-signin-form"
@@ -66,7 +66,7 @@ export default function LoginPage() {
                         <button type="submit" className="unique-form-submit-button" >Sign In</button>
                     </form>
                     <div className="unique-signup-link">
-                        <p>New to Sadguru? <Link to="/signup">Sign Up</Link></p>
+                        <p>New to Sadguru? <Link to="/sign-up">Sign Up</Link></p>
                     </div>
                 </div>
             </div>

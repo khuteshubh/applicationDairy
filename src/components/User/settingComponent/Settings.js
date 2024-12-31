@@ -1,5 +1,4 @@
 
-
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import './Settings.css';
@@ -15,7 +14,6 @@ const Settings = () => {
     const [theme, setTheme] = useState('light');
 
     useEffect(() => {
-        // Load saved theme from local storage
         const savedTheme = localStorage.getItem('theme') || 'light';
         setTheme(savedTheme);
         document.body.className = savedTheme;
@@ -29,14 +27,13 @@ const Settings = () => {
 
     const handleSaveSettings = () => {
         alert('Settings saved successfully!');
-        // Logic to save settings can be implemented here
     };
 
     return (
         <Container className="settings-container">
-            <h2 className="mb-4">Settings</h2>
-            <Row>
-                <Col md={8}>
+            <h2 className="mb-4 text-center">Settings</h2>
+            <Row className="justify-content-center">
+                <Col md={8} className="settings-form p-4">
                     <Form>
                         <Form.Group controlId="username" className="mb-3">
                             <Form.Label>Username</Form.Label>
@@ -64,19 +61,25 @@ const Settings = () => {
                                 type="checkbox"
                                 label="Email Notifications"
                                 checked={notifications.email}
-                                onChange={(e) => setNotifications({ ...notifications, email: e.target.checked })}
+                                onChange={(e) =>
+                                    setNotifications({ ...notifications, email: e.target.checked })
+                                }
                             />
                             <Form.Check
                                 type="checkbox"
                                 label="SMS Notifications"
                                 checked={notifications.sms}
-                                onChange={(e) => setNotifications({ ...notifications, sms: e.target.checked })}
+                                onChange={(e) =>
+                                    setNotifications({ ...notifications, sms: e.target.checked })
+                                }
                             />
                             <Form.Check
                                 type="checkbox"
                                 label="Push Notifications"
                                 checked={notifications.push}
-                                onChange={(e) => setNotifications({ ...notifications, push: e.target.checked })}
+                                onChange={(e) =>
+                                    setNotifications({ ...notifications, push: e.target.checked })
+                                }
                             />
                         </Form.Group>
 
@@ -99,9 +102,11 @@ const Settings = () => {
                             </div>
                         </Form.Group>
 
-                        <Button variant="success" onClick={handleSaveSettings}>
-                            Save Settings
-                        </Button>
+                        <div className="text-center">
+                            <Button variant="success" onClick={handleSaveSettings}>
+                                Save Settings
+                            </Button>
+                        </div>
                     </Form>
                 </Col>
             </Row>
@@ -110,4 +115,3 @@ const Settings = () => {
 };
 
 export default Settings;
-

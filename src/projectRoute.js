@@ -1,11 +1,11 @@
 import React from "react";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import App from "./App";
-import Header from "./Header";
-import Loginc from "./Loginc";
-import LoginPage from "./LoginPage";
-import AdminLogin from "./AdminLogin";
-import SignUpPage from "./SignUpPage";
+import Header from "./header/Header";
+import Loginc from "./loginContainer/Loginc";
+import LoginPage from "./farmerLogin/LoginPage";
+import AdminLogin from "./adminLogin/AdminLogin";
+import SignUpPage from "./signup-page/SignUpPage";
 // import Admin from "./components/Admin/Admin";
 import Add_Milk_Record from "./components/Admin/Add_Milk_Record";
 // import Dashboard from "./components/Admin/Dashboard";
@@ -16,40 +16,54 @@ import AddMilkRecord from "./components/Admin/AddMilkRecord";
 import AdminHeader from "./components/Admin/AdminHeader";
 
 import SideBar from "./components/User/siderBar/SideBar";
-import BuyAndSellCattle from "./components/User/BuyAndSellCattle";
+import BuyAndSellCattle from "./components/User/cattelListingPages/BuyAndSellCattle";
 
 import Dashboard from "./components/User/dashboard/Dashboard";
 import NavigationBar from "./components/User/navBar/NavigationBar";
 import MyProfile from "./components/User/profile/MyProfile";
 import Settings from "./components/User/settingComponent/Settings";
 import HomeUser from "./components/User/HomeUser";
-import UserLogin from "./UserLogin";
+import UserLogin from "./userLogin/UserLogin";
 import ProductUpload from "./components/Admin/Product/ProductUpload";
 import AdminDashboard from "./components/Admin/AdminDashboard";
 import BankDetailsPage from "./BankDetailsPage";
 // import UpperNavbar from "./components/Admin/UpperNavbar";
 import Admin from "./components/Admin/Admin";
-import AboutUs from "./AboutUs";
-import Main from "./Main";
+import AboutUs from "./aboutUsPage/AboutUs";
+import Main from "./mainHomePage/Main";
 import MilkReport from "./components/Admin/MilkReport";
 import FarmerLoan from "./components/Admin/FarmerLoan";
 import Product from "./Product";
 import CattleFeedForm from "./components/Admin/CattleFeedForm";
 import CustMilkDetails from "./components/Admin/CustMilkDetails";
+import Footer from "./footer/Footer";
+import BillingPayments from "./components/User/billing&paymentPages/BillingPayments";
+import PaymentManagement from "./components/User/milkqualituReport/QualityPricingInfo";
+import CommunityAndSupport from "./components/User/community&support/CommunityAndSupport";
+
+
 
 const customRoute = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: (
+    <>
+    <App />
+    
+    </>),
     children: [
+      {
+        path: "loginc",
+        element: <Loginc />,
+      },
       {
         path: "header",
         element: <Header />,
       },
-      {
-        path: "Main",
-        element: <Main />,
-      },
+      // {
+      //   path: "Main",
+      //   element: <Main />,
+      // },
       {
         path: "about",
         element: <AboutUs />,
@@ -58,26 +72,26 @@ const customRoute = createBrowserRouter([
         path: "product",
         element: <Product />,
       },
-      {
-        path: "loginc",
-        element: <Loginc />,
-      },
-      {
-        path: "farmerlogin",
-        element: <LoginPage />,
-      },
-      {
-        path: "adminlogin",
-        element: <AdminLogin />,
-      },
-      {
-        path: "userLogin",
-        element: <UserLogin />,
-      },
-      {
-        path: "signup",
-        element: <SignUpPage />,
-      },
+      // {
+      //   path: "loginc",
+      //   element: <Loginc />,
+      // },
+      // {
+      //   path: "farmerlogin",
+      //   element: <LoginPage />,
+      // },
+      // {
+      //   path: "adminlogin",
+      //   element: <AdminLogin />,
+      // },
+      // {
+      //   path: "userLogin",
+      //   element: <UserLogin />,
+      // },
+      // {
+      //   path: "signup",
+      //   element: <SignUpPage />,
+      // },
       {
         path: "bankdetails",
         element: <BankDetailsPage />,
@@ -85,7 +99,102 @@ const customRoute = createBrowserRouter([
       
       
     ],
+  },{
+    path:"login",
+    element:(
+      <>
+      <Header/>
+      <Loginc />
+      <Footer/>
+
+      </>
+    ),
+    children :[
+      // {
+      //   path: "farmerlogin",
+      //   element: <LoginPage />,
+      // },
+      // {
+      //   path: "adminlogin",
+      //   element: <AdminLogin />,
+      // },
+      // {
+      //   path: "userLogin",
+      //   element: <UserLogin />,
+      // },
+      {
+        path: "signup",
+        element: <SignUpPage />,
+      },
+      
+        // path: "loginc",
+        // element: <Loginc />,
+      
+
+
+    ],
+
+  },{
+    path:"admin",
+    element:(
+      <>
+      <Header/>
+      <AdminLogin />
+      <Footer/>
+
+      </>
+    )
   },
+  {
+    path:"farmer",
+    element:(
+      <>
+      <Header/>
+      <LoginPage />
+      <Footer/>
+     
+
+      </>
+    )
+  },
+  {
+    path:"user",
+    element:(
+      <>
+      <Header/>
+      <UserLogin />
+      <Footer/>
+      
+
+      </>
+    )
+  },
+  {
+    path:"sign-up",
+    element:(
+      <>
+      <Header/>
+      <SignUpPage />
+      <Footer/>
+      
+
+      </>
+    )
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   {
     path: "admindash",
     element: (
@@ -175,7 +284,19 @@ const customRoute = createBrowserRouter([
         path: "settings",
         element: <Settings/>
       },
-      
+
+      {
+        path: "billingpayments",
+        element: <BillingPayments/>
+      },
+      {
+        path: "paymentsManagement",
+        element: <PaymentManagement/>
+      },
+      {
+        path: "community&support",
+        element: <CommunityAndSupport/>
+      },
       
     ],
   },

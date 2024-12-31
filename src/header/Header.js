@@ -6,14 +6,14 @@ export default function Header() {
   const navigate = useNavigate();
 
   async function login() {
-    navigate("/loginc");
+    navigate("login");
   }
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">Navbar</a>
+          <a className="navbar-brand" href="/">Navbar</a>
           {/* <button
             className="navbar-toggler"
             type="button"
@@ -28,30 +28,38 @@ export default function Header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/Main">
+                <Link className="navM-link active" aria-current="page" to="/">
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/about">
+                <Link className="navM-link" to="/about">
                   About Us
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/product">
+                <Link className="navM-link" to="/product">
                   Product
                 </Link>
               </li>
             </ul>
             <button
-              className="btn btn-outline-success d-flex me-2"
+              className="btn btn-outline-success d-flex me-2 Headerlogin-btn"
               onClick={login}
             >
               Login
             </button>
           </div>
         </div>
-      </nav>
+      </nav>  
+      
+
+
     </>
   );
 }
+
+
+
+
+

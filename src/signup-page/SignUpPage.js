@@ -82,7 +82,7 @@ export default function SignUpPage() {
     <>
       <div className="signup-wrapper">
         <div className="signup-card">
-          <Link to="/loginc" className="signup-link">
+          <Link to="/login" className="signup-link">
             Back
           </Link>
           <br></br>
