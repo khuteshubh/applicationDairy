@@ -72,59 +72,6 @@ export default function SideBar() {
 
 
 
-// import React, { useState } from 'react'
-// import "./SideBar.css";
-
-// import { Link, Outlet } from "react-router-dom";
-// import DashboardIcon from "@mui/icons-material/Dashboard";
-// import BuyAndSellCattle from '../cattelListingPages/BuyAndSellCattle';
-// import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
-// import SummarizeIcon from '@mui/icons-material/Summarize';
-// import ListIcon from '@mui/icons-material/List';
-
-
-// export default function SideBar() {
-//      const [activeIndex, setActiveIndex] = useState(null); // Track active list item
-    
-//       const handleClick = (index) => {
-//         setActiveIndex(index); // Update active index
-//       };
-//     return (
-//         <>
-            
-
-// <div className="sideBar">
-//       <ul className="sidebarList list-group">
-//         {[
-//           { path: "/userdash/Dashboard", title: "Dashboard",icon:<DashboardIcon /> },
-//           { path: "/userdash/billingpayments", title: "Invoicing & Billing",icon:<ReceiptLongIcon/> },
-//           { path: "/userdash/paymentsManagement", title: "Quality Reports",icon:<SummarizeIcon /> },
-//           { path: "/userdash/buyandsell", title: "Cattel Listing",icon:<ListIcon /> },
-          
-//         ].map((item, index) => (
-//           <li
-//             key={index}
-//             className={`list-group-item ${activeIndex === index ? "bg-primary text-white" : ""}`}
-//             onClick={() => handleClick(index)}
-//             style={{ cursor: "pointer" }}
-//           >
-//             <Link to={item.path} className="title" style={{ textDecoration: "none", color: "inherit" }}>
-//               <span className='sidebar-icon'>{item.icon}</span>
-//               <span className="title">{item.title}</span>
-//             </Link>
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-
-
-
-//         </>
-
-//     )
-// }
-
-
 
 {/* <div>SideBar</div> */}
             {/* <div className='sideBar'>
