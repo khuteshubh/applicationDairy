@@ -22,17 +22,17 @@ export default function SideBar() {
 
   return (
     <div
-      className={`sideBar ${collapsed ? "collapsed" : ""}`}
+      className={`usideBar ${collapsed ? "collapsed" : ""}`}
       onMouseEnter={() => setCollapsed(false)} // Expand on hover
       onMouseLeave={() => setCollapsed(true)} // Collapse on mouse leave
     >
       <div className="sidebar-brandName">
         <span>Dairy</span>
       </div>
-      <ul className="sidebarList list-group">
+      <ul className="uSidebarList ulist-group">
         {[
           { path: "/userdash/Dashboard", title: "Dashboard", icon: <DashboardIcon /> },
-          { path: "/userdash/billingpayments", title: "Invoicing & Billing", icon: <ReceiptLongIcon /> },
+          // { path: "/userdash/billingpayments", title: "Invoicing & Billing", icon: <ReceiptLongIcon /> },
           { path: "/userdash/paymentsManagement", title: "Quality Reports", icon: <SummarizeIcon /> },
           { path: "/userdash/buyandsell", title: "Cattel Listing", icon: <ListIcon /> },
           { path: "/userdash/community&support", title: "Community&Support", icon: <LiveHelpIcon /> },
@@ -41,7 +41,7 @@ export default function SideBar() {
           {/* <span className="hiddenIcon">{item.icon}</span> */}
           <li
             key={index}
-            className={`list-group-item ${activeIndex === index ? "bg-primary text-white" : ""}`}
+            className={`ulist-group-item ${activeIndex === index ? "bg-primary text-white" : ""}`}
             onClick={() => handleClick(index)}
             style={{ cursor: "pointer", color:"white !important" }}
           ><div className="hiddenIcon">{item.icon}</div>
@@ -49,12 +49,12 @@ export default function SideBar() {
             
             <Link
               to={item.path}
-              className="title"
+              className="utitle"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               
               <span className="farmerSideIcon">{item.icon}</span>
-              <span className="title">{item.title}</span>
+              <span className="utitle">{item.title}</span>
             </Link>
           </li>
           </>

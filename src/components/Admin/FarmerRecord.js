@@ -1,45 +1,67 @@
 import React, { useState, useEffect } from "react";
 import "./FarmerRecord.css";
 import { useNavigate } from "react-router-dom";
+import MilkReport from "./MilkReport";
 
 export default function FarmerRecord() {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  const [selectedFarmer, setSelectedFarmer] = useState("");
+  const [selectedFarmerId, setSelectedFarmerId] = useState("");
   const [records, setRecords] = useState([]);
   const [filteredRecords, setFilteredRecords] = useState([]);
 
   const navigate = useNavigate();
 
-  // Load records from localStorage on component mount
   useEffect(() => {
     const storedRecords = JSON.parse(localStorage.getItem("milkRecords")) || [];
     setRecords(storedRecords);
     setFilteredRecords(storedRecords);
   }, []);
 
-  // Filter records based on selected farmer
   useEffect(() => {
-    if (selectedFarmer) {
-      const filtered = records.filter((record) =>
-        record.farmer.toLowerCase().includes(selectedFarmer.toLowerCase())
+    let filtered = [...records];
+
+    if (selectedFarmerId.trim()) {
+      filtered = filtered.filter(
+        (record) =>
+          record.farmerId &&
+          record.farmerId.toLowerCase() === selectedFarmerId.toLowerCase()
       );
-      setFilteredRecords(filtered);
-    } else {
-      setFilteredRecords(records);
     }
-  }, [selectedFarmer, records]);
+
+
+    if (startDate && endDate) {
+      filtered = filtered.filter((record) => {
+        const recordDate = new Date(record.date);
+        return (
+          recordDate >= new Date(startDate) && recordDate <= new Date(endDate)
+        );
+      });
+    }
+
+    setFilteredRecords(filtered);
+  }, [selectedFarmerId, startDate, endDate, records]);
+
 
   const handleGenerateReport = () => {
-    navigate("/milkreport", { state: { farmerRecords: filteredRecords } });
+    if (filteredRecords.length === 0) {
+      alert(
+        "No records found to generate the report. Please refine your search criteria."
+      );
+      return;
+    }
+    alert("Generating the report")
+    navigate("/milkreport", {
+      state: { farmerRecords: filteredRecords },
+    });
   };
 
   return (
     <div className="milk-record-container">
-      {/* Filters */}
+
       <div className="filters">
         <label>
-          Select start date:
+          Select Start Date:
           <input
             type="date"
             value={startDate}
@@ -47,7 +69,7 @@ export default function FarmerRecord() {
           />
         </label>
         <label>
-          Select end date:
+          Select End Date:
           <input
             type="date"
             value={endDate}
@@ -55,18 +77,18 @@ export default function FarmerRecord() {
           />
         </label>
         <label>
-          Select a farmer:
+          Search by Farmer ID:
           <input
             type="text"
-            value={selectedFarmer}
-            onChange={(e) => setSelectedFarmer(e.target.value)}
-            placeholder="Enter Farmer Name"
+            value={selectedFarmerId}
+            onChange={(e) => setSelectedFarmerId(e.target.value)}
+            placeholder="Enter Farmer ID"
           />
         </label>
         <button onClick={handleGenerateReport}>Generate Report</button>
       </div>
 
-      {/* Table */}
+    
       <div className="table-container">
         <table>
           <thead>
@@ -78,27 +100,37 @@ export default function FarmerRecord() {
               <th>Fat</th>
               <th>SNF</th>
               <th>Total Amount</th>
-              <th>Farmer</th>
+              <th>Farmer ID</th>
+              <th>Farmer Name</th>
             </tr>
           </thead>
           <tbody>
-            {filteredRecords.map((record, index) => (
-              <tr key={index}>
-                <td>{record.date}</td>
-                <td>{record.time}</td>
-                <td>{record.cattle}</td>
-                <td>{record.litre}</td>
-                <td>{record.fat}</td>
-                <td>{record.snf}</td>
-                <td>{record.totalAmount}</td>
-                <td>{record.farmer}</td>
+            {filteredRecords.length > 0 ? (
+              filteredRecords.map((record, index) => (
+                <tr key={index}>
+                  <td>{record.date}</td>
+                  <td>{record.time}</td>
+                  <td>{record.cattle}</td>
+                  <td>{record.litre}</td>
+                  <td>{record.fat}</td>
+                  <td>{record.snf}</td>
+                  <td>{record.totalAmount}</td>
+                  <td>{record.farmerId}</td>
+                  <td>{record.farmerName}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="9" style={{ textAlign: "center" }}>
+                  No records found
+                </td>
               </tr>
-            ))}
+            )}
           </tbody>
         </table>
       </div>
 
-      {/* Footer Stats */}
+ 
       <div className="footer-stats">
         <table>
           <thead>
@@ -108,8 +140,8 @@ export default function FarmerRecord() {
               <th>Avg FAT</th>
               <th>Avg SNF</th>
               <th>Avg Degree/%</th>
-              <th>Total Milk/L</th>
-              <th>Total Amount/₹</th>
+              <th>Total Milk (Ltr)</th>
+              <th>Total Amount (₹)</th>
             </tr>
           </thead>
           <tbody>
@@ -119,25 +151,35 @@ export default function FarmerRecord() {
               <td>
                 {filteredRecords.length > 0
                   ? (
-                      filteredRecords.reduce((sum, record) => sum + parseFloat(record.fat || 0), 0) /
-                      filteredRecords.length
+                      filteredRecords.reduce(
+                        (sum, record) => sum + parseFloat(record.fat || 0),
+                        0
+                      ) / filteredRecords.length
                     ).toFixed(2)
                   : "0.00"}
               </td>
               <td>
                 {filteredRecords.length > 0
                   ? (
-                      filteredRecords.reduce((sum, record) => sum + parseFloat(record.snf || 0), 0) /
-                      filteredRecords.length
+                      filteredRecords.reduce(
+                        (sum, record) => sum + parseFloat(record.snf || 0),
+                        0
+                      ) / filteredRecords.length
                     ).toFixed(2)
                   : "0.00"}
               </td>
               <td>--</td>
               <td>
-                {filteredRecords.reduce((sum, record) => sum + parseFloat(record.litre || 0), 0)}
+                {filteredRecords.reduce(
+                  (sum, record) => sum + parseFloat(record.litre || 0),
+                  0
+                )}
               </td>
               <td>
-                {filteredRecords.reduce((sum, record) => sum + parseFloat(record.totalAmount || 0), 0)}
+                {filteredRecords.reduce(
+                  (sum, record) => sum + parseFloat(record.totalAmount || 0),
+                  0
+                )}
               </td>
             </tr>
           </tbody>

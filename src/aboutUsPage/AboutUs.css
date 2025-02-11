@@ -3,6 +3,10 @@
     margin-right: auto;
 }
 
+.aboutus-cont{
+  margin-top: 100px !important;
+}
+
 img {
     max-width: 100%;
     height: auto;

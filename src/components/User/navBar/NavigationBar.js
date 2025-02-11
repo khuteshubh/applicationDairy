@@ -26,9 +26,9 @@ const NavigationBar = () => {
         
         <Navbar variant="dark" expand="lg" className='farmerSideNavBar'>
               <div className="UserNav_container">
-                <Navbar.Brand href="/userdash" className='Unavbar-brand'>Dairy management</Navbar.Brand>
+                <Navbar.Brand href="/userdash/productPage" className='Unavbar-brand'>Sadguru Digitalization</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbar-nav" />
-                <Navbar.Collapse id="navbar-nav">
+                <Navbar.Collapse id="navbar-nav" className='navbar-collapse-container'>
                   <Nav className="ms-auto">
                     <NavDropdown title={<FaUserCircle className='profile-icon w-2 h-1'  />} id="profile-dropdown" align="end">
                       <NavDropdown.Item href="/userdash/myProfile">

@@ -3,7 +3,7 @@ import './AboutUs.css' // Create this CSS file for better organization
 
 export default function AboutUs() {
   return (
-    <div>
+    <div className='aboutus-cont'>
      
       <div className="text-center">
         <img 

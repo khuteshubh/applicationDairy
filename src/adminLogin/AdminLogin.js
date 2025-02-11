@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./LoginPage.css";
+import "./AdminLogin.css";
 
 export default function AdminLogin() {
   const admin = useRef();

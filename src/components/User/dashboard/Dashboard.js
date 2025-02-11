@@ -1,9 +1,3 @@
-
-
-
-
-
-
 import React, { useState } from "react";
 import {
   Container, Row, Col, Card, Table, Button, Alert, Badge, Tooltip,
@@ -12,6 +6,7 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Dashboard.css";
 import "../siderBar/SideBar.css";
+
 
 const Dashboard = () => {
   const [notifications, setNotifications] = useState([
@@ -54,7 +49,8 @@ const Dashboard = () => {
     </Tooltip>
   );
 
-  return (
+  return (<>
+   
     <Container className="mt-5 dashboard-Container">
       <Row className="mb-4 text-center">
         <Col>
@@ -192,6 +188,7 @@ const Dashboard = () => {
       {/* Upcoming Milk Schedules Section */}
 
     </Container>
+    </>
   );
 };
 

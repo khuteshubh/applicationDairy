@@ -7,16 +7,18 @@
 
     position: relative;
     top: 10px;
-    /* left: 300px; */}
+    left: 70px;
+}
 
-a{
+ a{
     color: black;
 }
 .Unavbar-brand{
     position: sticky;
-    left: 70px;
+    left: 150px !important;
     top: 5px;
     font-weight: bold;
+    font-size: 15px;
     top: 0;
     /* opacity: 1; */
     display: inline-block;
@@ -74,4 +76,8 @@ a{
 
 #profile-dropdown .dropdown-toggle::after {
     display: none; /* Hides the dropdown arrow */
+}
+
+.navbar-collapse-container{
+    margin-right: 50px !important;
 }

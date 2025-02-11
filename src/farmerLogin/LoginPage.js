@@ -19,7 +19,7 @@ export default function LoginPage() {
   
       if (farmerVal === "farmer" && passVal === "password") {
         setError("");
-        navigate("/userdash/Dashboard");
+        navigate("/userdash/productPage");
       } else {
         setError("Please enter valid credentials");
       }

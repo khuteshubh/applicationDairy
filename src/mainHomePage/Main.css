@@ -10,6 +10,7 @@ body {
 /* Products Section */
 .products-container {
   padding: 20px;
+
 }
 
 .products-container h1 {
@@ -58,6 +59,7 @@ body {
   justify-content: center;
   gap: 20px; /* Adds spacing between cards */
   margin: 0 auto;
+  margin-bottom: 10px;
 }
 
 .product-card {

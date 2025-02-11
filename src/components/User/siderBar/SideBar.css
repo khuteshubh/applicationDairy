@@ -6,7 +6,7 @@ body {
   }
   
   /* Sidebar container */
-  .sideBar {
+  .usideBar {
     position: fixed;
     top: 0;
     left: 0;
@@ -26,7 +26,7 @@ body {
   }
   
   /* Collapsed sidebar */
-  .sideBar.collapsed {
+  .usideBar.collapsed {
     width: 60px; /* Only icons are visible */
    
   }
@@ -44,25 +44,26 @@ body {
    flex: 2;
 
   }
-  .title{
+  .utitle{
     flex: 2;
+    color:  white !important;
 
   }
-  .sideBar.collapsed .hiddenIcon{
+  .usideBar.collapsed .hiddenIcon{
     visibility: visible !important;
     /* position: relative; */
     /* left: 20px !important; */
   }
   
   /* Sidebar list */
-  .sidebarList {
+  .uSidebarList {
     list-style-type: none;
-    margin: 0;
+   margin-top: 30px;
     padding: 0;
   }
   
   /* List items */
-  .sidebarList .list-group-item {
+  .uSidebarList .ulist-group-item {
     display: flex;
     align-items: center;
     padding: 15px;
@@ -77,18 +78,18 @@ body {
    
   }
   
-  .sidebarList .list-group-item:hover {
+  .uSidebarList .ulist-group-item:hover {
     background-color: #34495e;
     color: white !important;
   }
   
   /* Active list item styles */
-  .sidebarList .list-group-item.bg-primary {
+  .uSidebarList .ulist-group-item.bg-primary {
     background-color: #2980b9 !important;
   }
   
   /* Icon styles */
-  .sidebarList .list-group-item span:first-child {
+  .uSidebarList .ulist-group-item span:first-child {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -98,7 +99,7 @@ body {
   }
   
   /* Title visibility */
-  .sidebarList .list-group-item .title {
+  .uSidebarList .ulist-group-item .utitle {
     font-size: 1rem;
     transition: opacity 0.3s ease, visibility 0.3s ease, width 0.3s ease;
     opacity: 1;
@@ -107,7 +108,7 @@ body {
   
  
   /* Collapsed sidebar - icon alignment */
-  .sideBar.collapsed .list-group-item span:first-child {
+  .usideBar.collapsed .ulist-group-item span:first-child {
     
     margin-right: 0;
     justify-content: center;
@@ -124,7 +125,7 @@ body {
 
   
   /* Ensure the icon remains visible */
-  .sideBar.collapsed .list-group-item .farmerSideIcon {
+  .usideBar.collapsed .ulist-group-item .farmerSideIcon {
     position: relative;
     visibility: visible; /* Ensure visibility */
     opacity: 1; /* Ensure opacity is fully visible */
@@ -133,20 +134,20 @@ body {
   }
   
   /* Hide the title in collapsed state */
-  .sideBar.collapsed .list-group-item .title {
+  .usideBar.collapsed .ulist-group-item .utitle {
     visibility: hidden; /* Hide title text */
     opacity: 0; /* Make title text invisible */
     width: 0; /* Ensure no space for the title */
   }
   
-  .sideBar.collapsed  .farmerSideIcon{
+  .usideBar.collapsed  .farmerSideIcon{
     visibility: inherit;
   }
 
 
 
 
-  .sideBar.collapsed  .sidebar-brandName h2{
+  .usideBar.collapsed  .sidebar-brandName h2{
     transition: width 0.3s ease-in-out;
     
     visibility: hidden;

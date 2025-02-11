@@ -1,9 +1,10 @@
+
 import React from "react";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import App from "./App";
 import Header from "./header/Header";
 import Loginc from "./loginContainer/Loginc";
-import LoginPage from "./farmerLogin/LoginPage";
+// import LoginPage from "./farmerLogin/LoginPage";
 import AdminLogin from "./adminLogin/AdminLogin";
 import SignUpPage from "./signup-page/SignUpPage";
 // import Admin from "./components/Admin/Admin";
@@ -40,7 +41,11 @@ import Footer from "./footer/Footer";
 import BillingPayments from "./components/User/billing&paymentPages/BillingPayments";
 import PaymentManagement from "./components/User/milkqualituReport/QualityPricingInfo";
 import CommunityAndSupport from "./components/User/community&support/CommunityAndSupport";
-
+import ProductComponents from "./components/User/product/ProductComponents";
+import ProductListing from "./components/User/product/ProductListing";
+import AdminProfile from  "./components/Admin/AdminProfile";
+import PaymentPage from "./paymentPage/PaymentPage";
+import LoginPage from "./loginPage/LoginPage";
 
 
 const customRoute = createBrowserRouter([
@@ -52,30 +57,30 @@ const customRoute = createBrowserRouter([
     
     </>),
     children: [
-      {
-        path: "loginc",
-        element: <Loginc />,
-      },
-      {
-        path: "header",
-        element: <Header />,
-      },
-      // {
-      //   path: "Main",
-      //   element: <Main />,
-      // },
-      {
-        path: "about",
-        element: <AboutUs />,
-      },
-      {
-        path: "product",
-        element: <Product />,
-      },
       // {
       //   path: "loginc",
       //   element: <Loginc />,
       // },
+      {
+        path: "header",
+        element: <Header />,
+      },
+      {
+        path: "Main",
+        element: <Main />,
+      },
+      // {
+      //   path: "about",
+      //   element: <AboutUs />,
+      // },
+      // {
+      //   path: "product",
+      //   element: <Product />,
+      // },
+      {
+        path: "loginc",
+        element: <Loginc />,
+      },
       // {
       //   path: "farmerlogin",
       //   element: <LoginPage />,
@@ -96,15 +101,20 @@ const customRoute = createBrowserRouter([
         path: "bankdetails",
         element: <BankDetailsPage />,
       },
+      {
+        path: "PaymentPage",
+        element: <PaymentPage />,
+      },
       
       
     ],
   },{
     path:"login",
+    // path: "about/login",
     element:(
       <>
       <Header/>
-      <Loginc />
+      <LoginPage/>
       <Footer/>
 
       </>
@@ -135,6 +145,28 @@ const customRoute = createBrowserRouter([
     ],
 
   },{
+    path:"about",
+    element:(
+      <>
+      <Header/>
+      <AboutUs />
+      <Footer/>
+
+      </>
+    )
+  }
+  ,{
+    path:"product",
+    element:(
+      <>
+      <Header/>
+      <Product/>
+      <Footer/>
+
+      </>
+    )
+  }
+  ,{
     path:"admin",
     element:(
       <>
@@ -183,83 +215,107 @@ const customRoute = createBrowserRouter([
   },
 
 
-
-
-
-
-
-
-
-
-
-
-
-
   {
     path: "admindash",
     element: (
       <>
-      <Admin/>
-      {/* <UpperNavbar/> */}
-        {/* <AdminHeader />  */}
-        {/* <Outlet /> */}
+        <AdminDashboard/>
       </>
     ),
     children: [
-      {
-        path: "dashboard",
-        element: <AdminDashboard/>,
-      },
-      {
-            path: "addMilk",
-            element: <AddMilkRecord/>
-          },
-      {
-        path: "addmilkrecord",
-        element: <Add_Milk_Record />,
-      },
-      {
-        path: "uesrmilkrecord",
-        element: <Add_User_Milk_Details />,
-      },
-      {
-        path: "custmilkrecord",
-        element: <CustMilkDetails />,
-      },
-      {
-        path: "farmerrecord",
-        element: <FarmerRecord />,
-      },
-      {
-        path: "milkreport",
-        element: <MilkReport />,
-      },
-      {
-        path: "cattlefeed",
-        element: <CattleFeedForm />,
-      },
-
-      {
-        path: "farmerloan",
-        element: <FarmerLoan />,
-      },
-      {
-        path: "loanfeed",
-        element: <LoanAndFeedRecord />,
-      },
-      {
-        path: "productupload",
-        element: <ProductUpload />,
-      },
+      { path: "milkreport", element: <MilkReport /> },
+      { path: "adminprofile", element: <AdminProfile /> },
+      { path: "addMilk", element: <AddMilkRecord /> },
+      { path: "addmilkrecord", element: <AddMilkRecord /> },
+      { path: "uesrmilkrecord", element: <Add_User_Milk_Details /> },
+      { path: "custmilkrecord", element: <CustMilkDetails /> },
+      { path: "farmerrecord", element: <FarmerRecord /> },
+      { path: "cattlefeed", element: <CattleFeedForm /> },
+      { path: "farmerloan", element: <FarmerLoan /> },
+      { path: "loanfeed", element: <LoanAndFeedRecord /> },
     ],
   },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // {
+  //   path: "admindash",
+  //   element: (
+  //     <>
+  //     <Admin/>
+  //     {/* <UpperNavbar/> */}
+  //       {/* <AdminHeader />  */}
+  //       {/* <Outlet /> */}
+  //     </>
+  //   ),
+  //   children: [
+  //     {
+  //       path: "dashboard",
+  //       element: <AdminDashboard/>,
+  //     },
+  //     {
+  //           path: "addMilk",
+  //           element: <AddMilkRecord/>
+  //         },
+  //     {
+  //       path: "addmilkrecord",
+  //       element: <Add_Milk_Record />,
+  //     },
+  //     {
+  //       path: "uesrmilkrecord",
+  //       element: <Add_User_Milk_Details />,
+  //     },
+  //     {
+  //       path: "custmilkrecord",
+  //       element: <CustMilkDetails />,
+  //     },
+  //     {
+  //       path: "farmerrecord",
+  //       element: <FarmerRecord />,
+  //     },
+  //     {
+  //       path: "milkreport",
+  //       element: <MilkReport />,
+  //     },
+  //     {
+  //       path: "cattlefeed",
+  //       element: <CattleFeedForm />,
+  //     },
+
+  //     {
+  //       path: "farmerloan",
+  //       element: <FarmerLoan />,
+  //     },
+  //     {
+  //       path: "loanfeed",
+  //       element: <LoanAndFeedRecord />,
+  //     },
+  //     {
+  //       path: "productupload",
+  //       element: <ProductUpload />,
+  //     },
+  //   ],
+  // },
   {
     path: "userdash",
     element: (
       <>
       {/* <HomeUser/> */}
         <SideBar />
+
         <NavigationBar />
+        {/* <ProductListing/> */}
         <Outlet/>
       </>
     ),
@@ -296,6 +352,10 @@ const customRoute = createBrowserRouter([
       {
         path: "community&support",
         element: <CommunityAndSupport/>
+      },
+      {
+        path: "productPage",
+        element: <ProductListing/>
       },
       
     ],
